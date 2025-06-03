@@ -425,7 +425,7 @@ components = {
     "data_sampling": "4. Daten-Sampling",
     "modeling": "5. Modellierung",
     "evaluation": "6. Modell-Evaluation",
-    "prediction":"7. Vorhersage"
+    "vorhersage":"7. Vorhersage"
 }
 
 # Buttons für jeden Workflow-Schritt
@@ -443,7 +443,7 @@ for key, label in components.items():
         disabled = True
     elif key == "evaluation" and (not 'models' in st.session_state or len(st.session_state.models) == 0):
         disabled = True
-    elif key == "prediction" and (not 'models' in st.session_state or len(st.session_state.models) == 0):
+    elif key == "vorhersage" and (not 'models' in st.session_state or len(st.session_state.models) == 0):
         disabled = True    
     if st.sidebar.button(label, disabled=disabled, key=f"btn_{key}"):
         activate_component(key)
