@@ -42,7 +42,7 @@ if 'active_components' not in st.session_state:
         "data_sampling": False,
         "modeling": False,
         "evaluation": False,
-        "prediction": False 
+        "vorhersage": False 
     }
 
 def is_home_page():
@@ -1332,8 +1332,8 @@ elif st.session_state.active_components["evaluation"]:
             activate_component("modeling")
 # 7. Prediction Komponente (Orange-Style Modell-Laden Workflow)
 # 7. Prediction Komponente (2-Adımlı Yapı)
-elif st.session_state.active_components["prediction"]:
-    st.header("7. Prediction", divider="orange")
+elif st.session_state.active_components["vorhersage"]:
+    st.header("7. Vorhersage", divider="orange")
     
     # Initialisierung des Session States für Prediction
     if 'loaded_models' not in st.session_state:
@@ -1748,7 +1748,7 @@ else:
         <p style='font-size: 1em;'>4. <strong>Daten-Sampling</strong>: Teilen Sie Ihre Daten in Trainings- und Testdaten auf</p>
         <p style='font-size: 1em;'>5. <strong>Modellierung</strong>: Trainieren Sie kNN- oder Entscheidungsbaum-Modelle</p>
         <p style='font-size: 1em;'>6. <strong>Evaluation</strong>: Bewerten Sie die Modellleistung mit Confusion Matrix und Metriken</p>
-        <p style='font-size: 1em;'>7. <strong>Prediction</strong>: Unsere trainierten Modelle auf neuen Datensätzen validieren</p>
+        <p style='font-size: 1em;'>7. <strong>Vorhersage</strong>: Unsere trainierten Modelle auf neuen Datensätzen validieren</p>
     </div>        
     <p style="font-weight: bold; font-size: 1em; margin-top: 15px; color: #007E92;">Beginnen Sie in der Seitenleiste auf "<span style="text-decoration: underline;">1. Daten importieren</span>" klicken.</p>
 </div>
