@@ -442,7 +442,7 @@ for key, label in components.items():
         disabled = True
     elif key == "evaluation" and (not 'models' in st.session_state or len(st.session_state.models) == 0):
         disabled = True
-    elif key == "prediction" and (not 'models' in st.session_state or len(st.session_state.models) == 0):
+    elif key == "vorhersage" and (not 'models' in st.session_state or len(st.session_state.models) == 0):
         disabled = True    
     if st.sidebar.button(label, disabled=disabled, key=f"btn_{key}"):
         activate_component(key)
@@ -1748,7 +1748,7 @@ else:
         <p style='font-size: 1em;'>4. <strong>Daten-Sampling</strong>: Teilen Sie Ihre Daten in Trainings- und Testdaten auf</p>
         <p style='font-size: 1em;'>5. <strong>Modellierung</strong>: Trainieren Sie kNN- oder Entscheidungsbaum-Modelle</p>
         <p style='font-size: 1em;'>6. <strong>Evaluation</strong>: Bewerten Sie die Modellleistung mit Confusion Matrix und Metriken</p>
-        <p style='font-size: 1em;'>7. <strong>Prediction</strong>: Unsere trainierten Modelle auf neuen Datensätzen validieren</p>
+        <p style='font-size: 1em;'>7. <strong>Vorhersage</strong>: Unsere trainierten Modelle auf neuen Datensätzen validieren</p>
     </div>        
     <p style="font-weight: bold; font-size: 1em; margin-top: 15px; color: #007E92;">Beginnen Sie in der Seitenleiste auf "<span style="text-decoration: underline;">1. Daten importieren</span>" klicken.</p>
 </div>
