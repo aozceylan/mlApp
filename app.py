@@ -404,7 +404,7 @@ if 'active_components' not in st.session_state:
         "data_sampling": False,
         "modeling": False,
         "evaluation": False,
-        "prediction": False 
+        "vorhersage": False 
     }
 
 # Funktion zum Aktivieren eines bestimmten Workflow-Schritts
@@ -424,7 +424,7 @@ components = {
     "data_sampling": "4. Daten-Sampling",
     "modeling": "5. Modellierung",
     "evaluation": "6. Modell-Evaluation",
-    "prediction":"7. Prediction"
+    "prediction":"7. Vorhersage"
 }
 
 # Buttons für jeden Workflow-Schritt
@@ -1324,7 +1324,7 @@ elif st.session_state.active_components["evaluation"]:
             activate_component("modeling")
             st.rerun()
         if st.button("Weiter zur Prediction", type="primary"):
-            activate_component("prediction")
+            activate_component("vorhersage")
             st.rerun()
         else:
          st.warning("Bitte trainieren Sie zuerst ein Modell.")
