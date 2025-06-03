@@ -32,7 +32,7 @@ import os
 
 st.set_page_config(page_title="ML Workflow", layout="wide")
 
-# İlk önce is_home_page fonksiyonunu kullanmadan önce active_components değişkeninin
+# İlk önce is_home_page fonksiyonunu kullanmadan önce active_components decd ğişkeninin
 # var olduğundan emin olmak için kontrol ekleyelim
 if 'active_components' not in st.session_state:
     st.session_state.active_components = {
@@ -42,7 +42,7 @@ if 'active_components' not in st.session_state:
         "data_sampling": False,
         "modeling": False,
         "evaluation": False,
-        "vorhersage": False 
+        "prediction": False 
     }
 
 def is_home_page():
@@ -53,8 +53,7 @@ def is_home_page():
         st.session_state.active_components.get("select_columns", False) == False and
         st.session_state.active_components.get("data_sampling", False) == False and
         st.session_state.active_components.get("modeling", False) == False and
-        st.session_state.active_components.get("evaluation", False) == False and
-        st.session_state.active_components.get("vorhersage", False) == False
+        st.session_state.active_components.get("evaluation", False) == False
     )
 def apply_custom_styling():
     home_page = is_home_page()
@@ -395,7 +394,7 @@ if 'y_test' not in st.session_state:
     st.session_state.y_test = None
 if 'model' not in st.session_state:
     st.session_state.model = None
-if 'vorhersage' not in st.session_state:
+if 'predictions' not in st.session_state:
     st.session_state.predictions = None
 if 'active_components' not in st.session_state:
     st.session_state.active_components = {
@@ -405,7 +404,7 @@ if 'active_components' not in st.session_state:
         "data_sampling": False,
         "modeling": False,
         "evaluation": False,
-        "vorhersage": False 
+        "prediction": False 
     }
 
 # Funktion zum Aktivieren eines bestimmten Workflow-Schritts
@@ -443,7 +442,7 @@ for key, label in components.items():
         disabled = True
     elif key == "evaluation" and (not 'models' in st.session_state or len(st.session_state.models) == 0):
         disabled = True
-    elif key == "vorhersage" and (not 'models' in st.session_state or len(st.session_state.models) == 0):
+    elif key == "prediction" and (not 'models' in st.session_state or len(st.session_state.models) == 0):
         disabled = True    
     if st.sidebar.button(label, disabled=disabled, key=f"btn_{key}"):
         activate_component(key)
@@ -1325,7 +1324,7 @@ elif st.session_state.active_components["evaluation"]:
             activate_component("modeling")
             st.rerun()
         if st.button("Weiter zur Prediction", type="primary"):
-            activate_component("vorhersage")
+            activate_component("prediction")
             st.rerun()
         else:
          st.warning("Bitte trainieren Sie zuerst ein Modell.")
@@ -1333,8 +1332,8 @@ elif st.session_state.active_components["evaluation"]:
             activate_component("modeling")
 # 7. Prediction Komponente (Orange-Style Modell-Laden Workflow)
 # 7. Prediction Komponente (2-Adımlı Yapı)
-elif st.session_state.active_components["vorhersage"]:
-    st.header("7. Vorhersage", divider="orange")
+elif st.session_state.active_components["prediction"]:
+    st.header("7. Prediction", divider="orange")
     
     # Initialisierung des Session States für Prediction
     if 'loaded_models' not in st.session_state:
@@ -1749,7 +1748,7 @@ else:
         <p style='font-size: 1em;'>4. <strong>Daten-Sampling</strong>: Teilen Sie Ihre Daten in Trainings- und Testdaten auf</p>
         <p style='font-size: 1em;'>5. <strong>Modellierung</strong>: Trainieren Sie kNN- oder Entscheidungsbaum-Modelle</p>
         <p style='font-size: 1em;'>6. <strong>Evaluation</strong>: Bewerten Sie die Modellleistung mit Confusion Matrix und Metriken</p>
-        <p style='font-size: 1em;'>7. <strong>Vorhersage</strong>: Unsere trainierten Modelle auf neuen Datensätzen validieren</p>
+        <p style='font-size: 1em;'>7. <strong>Prediction</strong>: Unsere trainierten Modelle auf neuen Datensätzen validieren</p>
     </div>        
     <p style="font-weight: bold; font-size: 1em; margin-top: 15px; color: #007E92;">Beginnen Sie in der Seitenleiste auf "<span style="text-decoration: underline;">1. Daten importieren</span>" klicken.</p>
 </div>
