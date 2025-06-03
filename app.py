@@ -53,7 +53,8 @@ def is_home_page():
         st.session_state.active_components.get("select_columns", False) == False and
         st.session_state.active_components.get("data_sampling", False) == False and
         st.session_state.active_components.get("modeling", False) == False and
-        st.session_state.active_components.get("evaluation", False) == False
+        st.session_state.active_components.get("evaluation", False) == False and
+        st.session_state.active_components.get("vorhersage", False) == False
     )
 def apply_custom_styling():
     home_page = is_home_page()
