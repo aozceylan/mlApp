@@ -16,6 +16,8 @@ from sklearn.metrics import (
         accuracy_score, precision_score, recall_score, f1_score, roc_auc_score,
         confusion_matrix, classification_report, roc_curve, auc, log_loss
     )
+import matplotlib
+matplotlib.use('Agg')  # Set backend before importing pyplot
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
