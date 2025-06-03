@@ -395,7 +395,7 @@ if 'y_test' not in st.session_state:
     st.session_state.y_test = None
 if 'model' not in st.session_state:
     st.session_state.model = None
-if 'predictions' not in st.session_state:
+if 'vorhersage' not in st.session_state:
     st.session_state.predictions = None
 if 'active_components' not in st.session_state:
     st.session_state.active_components = {
