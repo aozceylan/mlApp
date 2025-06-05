@@ -42,7 +42,7 @@ if 'active_components' not in st.session_state:
         "data_sampling": False,
         "modeling": False,
         "evaluation": False,
-        "prediction": False 
+        "vorhersage": False 
     }
 
 def is_home_page():
@@ -53,7 +53,8 @@ def is_home_page():
         st.session_state.active_components.get("select_columns", False) == False and
         st.session_state.active_components.get("data_sampling", False) == False and
         st.session_state.active_components.get("modeling", False) == False and
-        st.session_state.active_components.get("evaluation", False) == False
+        st.session_state.active_components.get("evaluation", False) == False and
+        st.session_state.active_components.get("vorhersage", False) == False
     )
 def apply_custom_styling():
     home_page = is_home_page()
@@ -394,7 +395,7 @@ if 'y_test' not in st.session_state:
     st.session_state.y_test = None
 if 'model' not in st.session_state:
     st.session_state.model = None
-if 'predictions' not in st.session_state:
+if 'vorhersage' not in st.session_state:
     st.session_state.predictions = None
 if 'active_components' not in st.session_state:
     st.session_state.active_components = {
@@ -404,7 +405,7 @@ if 'active_components' not in st.session_state:
         "data_sampling": False,
         "modeling": False,
         "evaluation": False,
-        "prediction": False 
+        "vorhersage": False 
     }
 
 # Funktion zum Aktivieren eines bestimmten Workflow-Schritts
@@ -961,7 +962,7 @@ elif st.session_state.active_components["modeling"]:
                             'train_predictions': train_predictions,
                             'test_predictions': test_predictions,
                             'full_predictions': full_predictions,
-                            'predictions': test_predictions,  # Für Kompatibilität mit altem Code
+                            'vorhersage': test_predictions,  # Für Kompatibilität mit altem Code
                             'y_full': y_full,  # Speichern der tatsächlichen Werte für den gesamten Datensatz
                             'y_train': y_train,
                             'y_test': y_test,
@@ -1332,8 +1333,8 @@ elif st.session_state.active_components["evaluation"]:
             activate_component("modeling")
 # 7. Prediction Komponente (Orange-Style Modell-Laden Workflow)
 # 7. Prediction Komponente (2-Adımlı Yapı)
-elif st.session_state.active_components["prediction"]:
-    st.header("7. Prediction", divider="orange")
+elif st.session_state.active_components["vorhersage"]:
+    st.header("7. Vorhersage", divider="orange")
     
     # Initialisierung des Session States für Prediction
     if 'loaded_models' not in st.session_state:
@@ -1573,7 +1574,7 @@ elif st.session_state.active_components["prediction"]:
     
     # SCHRITT 2: ERGEBNISSE
     elif st.session_state.prediction_step == "results":
-        st.subheader("Schritt 2: Prediction Ergebnisse")
+        st.subheader("Schritt 2: Vorhersage Ergebnisse")
         
         # Zurück-Button
         col1, col2, col3 = st.columns([1, 4, 1])
